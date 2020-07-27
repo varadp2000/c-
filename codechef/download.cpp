@@ -18,39 +18,30 @@ int main(){
             ht = j;
         stream.push_back(temp);
         t--;
-    }   
+    } 
+    int possibles[ht] = {0};
+    vector<int> a[ht];
+    for (int i = 1; i <= ht;i++){
+        for (int j = 1; j < ht;j++){
+            if (stream[j].first <= i && stream[j].second >= i)
+            {
+                a[i].push_back(i);
+            }
+        }
+    }  
     cout << "\n";
     int grp;
     cin >> grp;
     cout << "\n";
-    int possibles[ht] = {0};
-    int temp[ht] = {0};
-    set <int, greater <int> > a[t];
-    for (int i = 1; i <= ht;i++){
-        for (int j = 1; j <= ht;j++){
-            {
-                if(stream[i].first<=j&&stream[i].second>=j){
-                    possibles[i]++;
-                    a[j].insert(i);
-                }
-            }
-        }
-    }
-    for (int i = 1; i <= ht;i++){
-        set_union(a[i], a[i]+ht, a[i+1], a[i+1] + ht , a[i].brgin());   
-    }
-        int c = 0;
+    int c = 0;
     while(grp--){
         int n;
         cin >> n;
-        while(n--){
-            int a;
-            cin >> a;
-            if(possibles[a]>possibles[c])
-                c = a;
-            cout << possibles[c] << "\t" << c << "\n";
-            c = 0;
+        set <int, greater <int> > s1;
+        for (int i = 0; i < a[n].size();i++){
+            s1.insert(a[n][i]);
         }
+        cout << s1.size();
     }
     
 }
