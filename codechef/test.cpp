@@ -7,8 +7,7 @@ int main(){
         cin  >> i ;
         if(i ==42)
             break;
-        if(i<100&&i>-100)
-            cout << i <<"\n";
+         cout << i <<"\n";
     }
-    return 1;
+    return 0;
 }
